@@ -1,12 +1,14 @@
-import React from 'react';
-import CardRoom from "./components/CardRoom"
+import React from "react";
+
+import { Provider } from "react-redux";
+import { store } from "./core/store/store";
 function App() {
   return (
-    <div style={{height:'100vh'}}>
-      <CardRoom/>
-      <CardRoom/>
-      <CardRoom/>
-    </div>
+    <>
+      <Provider store={store}>
+
+      </Provider>
+    </>
   );
 }
 
