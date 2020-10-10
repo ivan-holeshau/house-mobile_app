@@ -1,11 +1,11 @@
 import {combineReducers} from 'redux'
-import {mainReducer,  MainState} from './main/mainReducer'
+import {mainReducer,  initalState} from './mainReducer'
 
 export interface Action {
     [key:string]:string,
 }
 export interface RootState {
-    mainReduser: MainState,
+    mainReducer: typeof initalState,
 }
 
 export default combineReducers({

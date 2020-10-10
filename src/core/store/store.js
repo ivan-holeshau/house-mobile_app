@@ -1,5 +1,6 @@
 import thunk from 'redux-thunk'
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, applyMiddleware, compose,  } from 'redux'
+
 import rootReducer from '../reducer'
 
 const enhancer = compose(
@@ -7,4 +8,6 @@ const enhancer = compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   )
 
-  export const store = createStore(rootReducer, enhancer)
+  const store = createStore(rootReducer, enhancer)
+  //store.dispatch('@@INIT')
+  export default store;

@@ -18,7 +18,7 @@ interface AvatarProps {
 
 interface AvatarPrivateProps extends AvatarProps {
   registered: () => void;
-  isRegistered: boolean;
+  isRegistered: any;
 }
 
 export const Avatar: React.FC<AvatarPrivateProps> = ({
@@ -32,9 +32,9 @@ export const Avatar: React.FC<AvatarPrivateProps> = ({
   return (
     <>
       <AvatarObject alt={alt} src={src} onClick={registered} />
-      {isRegistered &&<>
+      {isRegistered && 
       <MenuItem value={10}>Ten</MenuItem>
-     </>}
+     }
     </>
   );
 };
