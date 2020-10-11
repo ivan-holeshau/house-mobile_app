@@ -1,18 +1,31 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
 import { Header } from "../../../shared/header";
-import BigNews from "./bigNews";
+import ViewNews from "./ViewNews";
+import {typeNewsView} from '../../../core/constants/type'
+
 interface MainProps {}
+  
+const style = {
+ 
+  
+}
+
 
 export const Main: React.FC<MainProps> = () => {
   return (
     <>
       <Header />
-      <Grid container  justify='space-between' direction='row'>
+      <Grid container  justify='space-between' direction='row' spacing={1}>
       <Grid item xs={5}>
-      <BigNews alt='text' src='https://img3.goodfon.ru/original/3000x2000/6/5f/nebo-oblaka-gory-zakat-ozero.jpg' news={{}}/>
+      <ViewNews type={typeNewsView.bigView}  alt='text' src='https://img3.goodfon.ru/original/3000x2000/6/5f/nebo-oblaka-gory-zakat-ozero.jpg' news={{}}  />
       </Grid>
-      <Grid item xs={7}></Grid>
+      <Grid item xs={4}>
+      <ViewNews type={typeNewsView.smallView}  alt='text' src='https://img3.goodfon.ru/original/3000x2000/6/5f/nebo-oblaka-gory-zakat-ozero.jpg' news={{}}  />
+      </Grid>
+      <Grid item xs={3}>
+      <ViewNews type={typeNewsView.middleView}  alt='text' src='https://img3.goodfon.ru/original/3000x2000/6/5f/nebo-oblaka-gory-zakat-ozero.jpg' news={{}}  />
+      </Grid>
       </Grid>
       
     </>
