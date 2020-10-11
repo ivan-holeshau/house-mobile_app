@@ -1,4 +1,4 @@
 import {connect} from 'react-redux'
-import {BigNews} from './bigNews'
+import {BigNews} from './ViewNews'
 
 export default connect()(BigNews)
