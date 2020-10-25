@@ -3,7 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import { style } from "../../../constants/interface";
 import Picture from "../../../../shared/Picture";
 import { typeNewsView } from "../../../constants/type";
-import {BigViewNews} from '../../../reducer'
+import { BigViewNews } from "../../../reducer";
 //import {} from '../../../../static/picture/bigPicture/'
 interface BigNewsProps {
   src?: string;
@@ -13,7 +13,7 @@ interface BigNewsProps {
 }
 
 interface BigNewsPrivateProps extends BigNewsProps {
-  bigNews:BigViewNews;
+  bigNews: BigViewNews;
 }
 
 const styles: style = {
@@ -26,34 +26,37 @@ const styles: style = {
     fontSize: "1.2rem",
   },
   text: {
-    fontSize: "1.1rem",
-    color:'rgb(140 137 137)'
+    fontSize: "1rem",
+    marginTop: "0.8rem",
+    color: "rgb(140 137 137)",
   },
   autorContainer: {
     fontSize: "1rem",
-    color:'rgb(140 137 137)'
+    marginTop: "1rem",
+    color: "rgb(140 137 137)",
   },
   autor: {},
   date: {},
 
   pictureContainer: {
-    height: "50%",
+    height: "60%",
   },
   containerText: {
-    height: "50%",
+    height: "40%",
   },
   containerBig: {
     minHeight: "300px",
     width: "100%",
-    height:"100%"
+    height: "100%",
   },
   containerMiddle: {
-    height: "420px",
+    height: "220px",
     width: "100%",
   },
   containerSmall: {
-    height: "120px",
+    height: "80px",
     width: "100%",
+    marginBottom:'1rem',
   },
 };
 
@@ -71,27 +74,21 @@ export const BigNews: React.FC<BigNewsPrivateProps> = ({
         direction="row"
         justify="center"
         style={styles.containerBig}
-        spacing={2}
+        
       >
         <Grid item xs={12} style={styles.pictureContainer}>
-          <Picture src={'./static/picture/bigPicture/1.png'} alt={bigNews.alt} />
+          <Picture
+            src={"./static/picture/bigPicture/1.png"}
+            alt={bigNews.alt}
+          />
         </Grid>
-        <Grid item xs={10} style={styles.containerText}>
-          <Grid
-            container
-            direction="column"
-            justify="space-between"
-            style={{ height: "100%" }}
-            alignItems="flex-start"
-          >
-            <Grid item style={styles.title}>
-              {bigNews.title}
-            </Grid>
-            <Grid item style={styles.text}>
-              {bigNews.text}
-            </Grid>
-            <Grid item style={styles.autorContainer}>
-            {bigNews.readTime}
+        <Grid item xs={12} style={styles.containerText} justify="flex-end">
+          <Grid container>
+            <Grid xs={2}></Grid>
+            <Grid item xs={10}>
+              <div style={styles.title}>{bigNews.title}</div>
+              <div style={styles.text}>{bigNews.text}</div>
+              <div style={styles.autorContainer}> {bigNews.readTime}</div>
             </Grid>
           </Grid>
         </Grid>
@@ -106,28 +103,26 @@ export const BigNews: React.FC<BigNewsPrivateProps> = ({
         justify="center"
         style={styles.containerMiddle}
       >
-        <Grid item xs={12} style={styles.pictureContainer}>
-          {/* <Picture src={src} alt={alt} /> */}
+        {" "}
+        <Grid item xs={12}>
+          <Grid container direction="row">
+            <Grid item xs={10} style={styles.pictureContainer}>
+              <Picture
+                src={"./static/picture/bigPicture/1.png"}
+                alt={bigNews.alt}
+              />
+            </Grid>
+            <Grid xs={2}></Grid>
+          </Grid>
         </Grid>
-        <Grid item xs={10} style={styles.containerText}>
-          <Grid
-            container
-            direction="column"
-            justify="space-between"
-            style={{ height: "100%" }}
-            alignItems="center"
-          >
-            <Grid item style={styles.title}>
-              title
+        <Grid item xs={12}>
+          <Grid container direction="row">
+            <Grid item xs={10} style={styles.pictureContainer}>
+              <div style={styles.title}>{bigNews.title}</div>
+              <div style={styles.text}>{bigNews.text}</div>
+              <div style={styles.autorContainer}> {bigNews.readTime}</div>
             </Grid>
-            <Grid item style={styles.text}>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas,
-              dolorum.
-            </Grid>
-            <Grid item style={styles.autorContainer}>
-              <div style={styles.autor}>Lorem, ipsum.</div>
-              <div style={styles.date}>Lorem, ipsum dolor.</div>
-            </Grid>
+            <Grid xs={2}></Grid>
           </Grid>
         </Grid>
       </Grid>
@@ -140,19 +135,15 @@ export const BigNews: React.FC<BigNewsPrivateProps> = ({
       justify="center"
       style={styles.containerSmall}
     >
-      <Grid item xs={2} style={styles.containerSmall}>
-        {/* <Picture src={src} alt={alt} /> */}
+      <Grid item xs={3} style={styles.containerSmall}>
+        <Picture src={"./static/picture/bigPicture/1.png"} alt={alt} />
       </Grid>
-      <Grid item xs={10} >
-        <Grid container justify="space-between" direction="column" alignItems="center" spacing={1} style={{height:'100%'}}>
-        <Grid item  style={styles.title}>
-          title
-        </Grid>
-        <Grid item  style={styles.autorContainer}>
-          <div style={styles.autor}>Lorem, ipsum.</div>
-          <div style={styles.date}>Lorem, ipsum dolor.</div>
-        </Grid>
-        </Grid>
+      <Grid item xs={9} style={{height:"100%"}}>
+        <div style={{display:'flex',justifyContent:"space-between", alignItems:"self-start", marginLeft:'1rem', flexDirection:'column', height:"100%"}}>
+          <div style={styles.title}>{bigNews.title}</div>
+
+          <div style={styles.autorContainer}> {bigNews.readTime}</div>
+        </div>
       </Grid>
     </Grid>
   );
